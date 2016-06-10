@@ -1,4 +1,4 @@
-package com.luxoft;
+package com.luxoft.movieLand;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
