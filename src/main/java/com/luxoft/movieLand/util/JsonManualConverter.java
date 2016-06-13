@@ -1,6 +1,8 @@
 package com.luxoft.movieLand.util;
 
 import com.luxoft.movieLand.entity.Movie;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,13 +10,16 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class JsonManualConverter {
+    private final Logger log = LoggerFactory.getLogger(getClass());
     private static final String COMMA_SEPARATOR = ",";
     private static final String COLON_SEPARATOR = ":";
 
     public String toJson(Movie movie) {
         StringBuilder json = new StringBuilder("{");
-        String[] movieFieldNames = {"name", "english_name", "year", "rating", "id"};
-        Object[] cityFields = {movie.getName(),movie.getEnglishName(),movie.getYear(),movie.getRating(),movie.getId()};
+        String[] movieFieldNames = {"name", "english_name", "year", "rating", "id", "country", "genre"};
+        Object[] cityFields = {movie.getName(),movie.getEnglishName(),movie.getYear(),movie.getRating(),movie.getId(),movie.getCounties(),movie.getGenres()};
+        log.info("66666 {}", cityFields);
+
         for (int i = 0; i < movieFieldNames.length; i++) {
             json.append(surroundByQuotes(movieFieldNames[i]));
             json.append(COLON_SEPARATOR);
@@ -26,7 +31,6 @@ public class JsonManualConverter {
         json.append("}");
         return json.toString();
     }
-
     private String surroundByQuotes(Object value) {
         return "\"" + value + "\"";
     }

@@ -1,17 +1,41 @@
 package com.luxoft.movieLand.entity;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.List;
+
 /**
  * Created by red5 on 08.06.2016.
  */
 public class Movie {
+    //private final Logger log = LoggerFactory.getLogger(getClass());
     private int id;
     private String name;
     private String englishName;
     private int year;
-    private String country;
+    private List<Country> countryList;
+    private List<Genre> genreList;
     private String story;
     private double rating;
     private double price;
+    private static final String COMMA_SEPARATOR = ", ";
+
+    public List<Country> getCountryList() {
+        return countryList;
+    }
+
+    public void setCountryList(List<Country> countryList) {
+        this.countryList = countryList;
+    }
+
+    public List<Genre> getGenreList() {
+        return genreList;
+    }
+
+    public void setGenreList(List<Genre> genreList) {
+        this.genreList = genreList;
+    }
 
     public int getId() {
         return id;
@@ -43,14 +67,6 @@ public class Movie {
 
     public void setYear(int year) {
         this.year = year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public String getStory() {
@@ -90,4 +106,24 @@ public class Movie {
                 //", price=" + price +
                 '}';
     }*/
+    public String getGenres(){
+        StringBuilder result = new StringBuilder("");
+        int i=1;
+        for (Genre genre : genreList ) {
+            result.append(genre);
+            if(i++!=genreList.size()){result.append(COMMA_SEPARATOR);}
+        }
+
+        return result.toString();
+    }
+    public String getCounties(){
+        StringBuilder result = new StringBuilder("");
+        int i=1;
+        for (Country country : countryList ) {
+            result.append(country);
+            if(i++!=countryList.size()){result.append(COMMA_SEPARATOR);}
+        }
+
+        return result.toString();
+    }
 }

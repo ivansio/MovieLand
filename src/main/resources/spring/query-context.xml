@@ -5,8 +5,14 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="getMovieByIdSQL" class="java.lang.String">
-        <!--constructor-arg value="select m.name,m.english_name,m.year,m.rating,g.genre_name from  movie m,ref_movie_genre r,genre g where m.id=? and m.id=r.id_movie and r.id_genre=g.id;"/-->
         <constructor-arg value="select m.id,m.name,m.english_name,m.year,m.rating from  movie m where m.id=?;"/>
     </bean>
 
+    <bean id="getRefMovieCountrySQL" class="java.lang.String">
+        <constructor-arg value="select c.name from country c,ref_movie_country rmc where c.id=rmc.id_country and rmc.id_movie=?;"/>
+    </bean>
+
+    <bean id="getRefMovieGenreSQL" class="java.lang.String">
+        <constructor-arg value="select g.name from genre g,ref_movie_genre rmg where g.id=rmg.id_genre and rmg.id_movie=?;"/>
+    </bean>
 </beans>
