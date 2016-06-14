@@ -32,9 +32,6 @@ public class JdbcMovieDao implements MovieDao {
     @Autowired
     private String getReviewByIdSQL;
 
-    @Autowired
-    private DataSource dataSource;
-
     @Override
     public Movie getById(int id) {
         Movie movie = jdbcTemplate.queryForObject(getMovieByIdSQL, new Object[]{id},new MovieRowMapper());

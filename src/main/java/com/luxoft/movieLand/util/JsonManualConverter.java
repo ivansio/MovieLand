@@ -13,8 +13,8 @@ public class JsonManualConverter {
 
     public String toJson(Movie movie) {
         StringBuilder json = new StringBuilder("{");
-        String[] movieFieldNames = {"name", "english_name", "year", "country", "genre", "description", "reviewDescription", "rating"};
-        Object[] cityFields = {movie.getName(),movie.getEnglishName(),movie.getYear(),movie.getCounties(),movie.getGenres(),
+        String[] movieFieldNames = {"title", "year", "country", "genre", "description", "reviewDescription", "rating"};
+        Object[] cityFields = {movie.getName()+"/"+movie.getEnglishName(),movie.getYear(),movie.getCounties(),movie.getGenres(),
                 movie.getDescription(),movie.getReview(),movie.getRating()};
         for (int i = 0; i < movieFieldNames.length; i++) {
             json.append(surroundByQuotes(movieFieldNames[i]));
