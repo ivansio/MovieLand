@@ -1,6 +1,6 @@
-package com.luxoft.movieLand.dao.jdbc.mapper;
+package com.luxoft.movieland.dao.jdbc.mapper;
 
-import com.luxoft.movieLand.entity.Genre;
+import com.luxoft.movieland.entity.Genre;
 import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;

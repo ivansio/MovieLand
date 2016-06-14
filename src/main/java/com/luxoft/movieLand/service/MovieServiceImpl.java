@@ -1,7 +1,7 @@
-package com.luxoft.movieLand.service;
+package com.luxoft.movieland.service;
 
-import com.luxoft.movieLand.dao.MovieDao;
-import com.luxoft.movieLand.entity.Movie;
+import com.luxoft.movieland.dao.MovieDao;
+import com.luxoft.movieland.entity.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

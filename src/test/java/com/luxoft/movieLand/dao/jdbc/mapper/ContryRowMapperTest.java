@@ -1,6 +1,6 @@
-package com.luxoft.movieLand.dao.jdbc.mapper;
+package com.luxoft.movieland.dao.jdbc.mapper;
 
-import com.luxoft.movieLand.entity.Country;
+import com.luxoft.movieland.entity.Country;
 import org.junit.Test;
 
 import java.sql.ResultSet;
@@ -11,7 +11,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class testMapRowWithProperCountry {
+public class ContryRowMapperTest {
     @Test
     public void testMapRowWithProperCountry() throws SQLException {
         ResultSet resultSet = mock(ResultSet.class);
