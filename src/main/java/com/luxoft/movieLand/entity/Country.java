@@ -1,8 +1,5 @@
 package com.luxoft.movieLand.entity;
 
-/**
- * Created by red5 on 13.06.2016.
- */
 public class Country {
     private int id;
     private String name;
@@ -22,6 +19,7 @@ public class Country {
     public void setId(int id) {
         this.id = id;
     }
+
     @Override
     public  String toString(){
         return name;

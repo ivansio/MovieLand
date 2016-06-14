@@ -1,25 +1,27 @@
 package com.luxoft.movieLand.entity;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.List;
 
-/**
- * Created by red5 on 08.06.2016.
- */
 public class Movie {
-    //private final Logger log = LoggerFactory.getLogger(getClass());
     private int id;
     private String name;
     private String englishName;
     private int year;
     private List<Country> countryList;
     private List<Genre> genreList;
-    private String story;
+    private String description;
     private double rating;
     private double price;
+    private List<Review> reviewList;
     private static final String COMMA_SEPARATOR = ", ";
+
+    public List<Review> getReviewList() {
+        return reviewList;
+    }
+
+    public void setReviewList(List<Review> reviewList) {
+        this.reviewList = reviewList;
+    }
 
     public List<Country> getCountryList() {
         return countryList;
@@ -69,12 +71,12 @@ public class Movie {
         this.year = year;
     }
 
-    public String getStory() {
-        return story;
+    public String getDescription() {
+        return description;
     }
 
-    public void setStory(String story) {
-        this.story = story;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public double getRating() {
@@ -93,19 +95,6 @@ public class Movie {
         this.price = price;
     }
 
-    /*@Override
-    public String toString() {
-        return "Movie{" +
-                "id =" + id +
-                ", name=" + name +
-                ", englishName=" + englishName +
-                ", year='" + year + '\'' +
-                //", country='" + country + '\'' +
-                //", story='" + story + '\'' +
-                ", rating=" + rating +//'\'' +
-                //", price=" + price +
-                '}';
-    }*/
     public String getGenres(){
         StringBuilder result = new StringBuilder("");
         int i=1;
@@ -113,9 +102,9 @@ public class Movie {
             result.append(genre);
             if(i++!=genreList.size()){result.append(COMMA_SEPARATOR);}
         }
-
         return result.toString();
     }
+
     public String getCounties(){
         StringBuilder result = new StringBuilder("");
         int i=1;
@@ -123,7 +112,16 @@ public class Movie {
             result.append(country);
             if(i++!=countryList.size()){result.append(COMMA_SEPARATOR);}
         }
+        return result.toString();
+    }
 
+    public String getReview(){
+        StringBuilder result = new StringBuilder("");
+        int i=1;
+        for (Review review : reviewList ) {
+            result.append(review);
+            if(i++!=reviewList.size()){result.append("    ");}
+        }
         return result.toString();
     }
 }

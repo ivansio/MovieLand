@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="getMovieByIdSQL" class="java.lang.String">
-        <constructor-arg value="select m.id,m.name,m.english_name,m.year,m.rating from  movie m where m.id=?;"/>
+        <constructor-arg value="select m.name,m.english_name,m.year,m.description,m.rating,m.id from  movie m where m.id=?;"/>
     </bean>
 
     <bean id="getRefMovieCountrySQL" class="java.lang.String">
@@ -14,5 +14,9 @@
 
     <bean id="getRefMovieGenreSQL" class="java.lang.String">
         <constructor-arg value="select g.name from genre g,ref_movie_genre rmg where g.id=rmg.id_genre and rmg.id_movie=?;"/>
+    </bean>
+
+    <bean id="getReviewByIdSQL" class="java.lang.String">
+        <constructor-arg value="SELECT description FROM (select r.description from review r where r.id_movie=?) T LIMIT 2;"/>
     </bean>
 </beans>

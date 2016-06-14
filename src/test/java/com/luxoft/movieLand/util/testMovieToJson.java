@@ -25,8 +25,5 @@ public class testMovieToJson {
 
                 movies.add(movie);
 
-
-        //String actualJson = jsonJacksonConverter.parseMovie(movies);
-                //assertEquals(expectedJson, actualJson);
         }
 }
