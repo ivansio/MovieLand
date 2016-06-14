@@ -1,15 +1,14 @@
 package com.luxoft.movieLand.util;
 
 import com.luxoft.movieLand.entity.Movie;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by red5 on 10.06.2016.
- */
+@Ignore
 public class testMovieToJson {
     @Test
         public void testMovieToJson() {
