@@ -1,6 +1,6 @@
-package com.luxoft.movieLand.service;
+package com.luxoft.movieland.service;
 
-import com.luxoft.movieLand.entity.Movie;
+import com.luxoft.movieland.entity.Movie;
 
 public interface MovieService {
     Movie getById(int id);

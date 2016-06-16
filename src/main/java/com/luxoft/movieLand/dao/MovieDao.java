@@ -1,6 +1,6 @@
-package com.luxoft.movieLand.dao;
+package com.luxoft.movieland.dao;
 
-import com.luxoft.movieLand.entity.Movie;
+import com.luxoft.movieland.entity.Movie;
 
 public interface MovieDao {
     Movie getById(int id);

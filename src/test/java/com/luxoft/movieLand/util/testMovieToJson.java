@@ -1,6 +1,6 @@
-package com.luxoft.movieLand.util;
+package com.luxoft.movieland.util;
 
-import com.luxoft.movieLand.entity.Movie;
+import com.luxoft.movieland.entity.Movie;
 import org.junit.Ignore;
 import org.junit.Test;
 

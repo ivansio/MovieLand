@@ -1,15 +1,13 @@
-package com.luxoft.movieLand.controller;
+package com.luxoft.movieland.controller;
 
-import com.luxoft.movieLand.entity.Movie;
-import com.luxoft.movieLand.service.MovieService;
-import com.luxoft.movieLand.util.JsonManualConverter;
+import com.luxoft.movieland.entity.Movie;
+import com.luxoft.movieland.service.MovieService;
+import com.luxoft.movieland.util.JsonManualConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.sql.DataSource;
 
 @Controller
 @RequestMapping("/v1/movie")

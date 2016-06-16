@@ -1,4 +1,4 @@
-package com.luxoft.movieLand.entity;
+package com.luxoft.movieland.entity;
 
 public class Genre {
     private int id;

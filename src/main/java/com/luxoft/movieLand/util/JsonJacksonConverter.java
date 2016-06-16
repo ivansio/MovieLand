@@ -1,14 +1,11 @@
-package com.luxoft.movieLand.util;
+package com.luxoft.movieland.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.luxoft.movieLand.entity.Movie;
+import com.luxoft.movieland.entity.Movie;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
-/**
- * Created by red5 on 10.06.2016.
- */
 @Service
 public class JsonJacksonConverter {
 

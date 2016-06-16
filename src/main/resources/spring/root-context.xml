@@ -9,7 +9,7 @@
 
     <import resource="query-context.xml"/>
 
-    <context:component-scan base-package="com.luxoft.movieLand">
+    <context:component-scan base-package="com.luxoft.movieland">
         <context:exclude-filter type="regex" expression="com\.luxoft\.movieLand\.controller\..*"/>
     </context:component-scan>
 
@@ -20,13 +20,6 @@
     <bean id="namedJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
         <constructor-arg ref="dataSource"/>
     </bean>
-
-    <!--jdbc:embedded-database id="dataSource" type="HSQL">
-        <jdbc:script location="classpath:/db/create-db.sql"/>
-        <jdbc:script location="classpath:db/insert-cities.sql"/>
-    </jdbc:embedded-database-->
-
-    <!--jdbc:embedded-database id="dataSource"/-->
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">

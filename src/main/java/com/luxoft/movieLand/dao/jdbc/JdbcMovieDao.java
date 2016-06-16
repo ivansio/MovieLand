@@ -1,24 +1,19 @@
-package com.luxoft.movieLand.dao.jdbc;
+package com.luxoft.movieland.dao.jdbc;
 
-import com.luxoft.movieLand.dao.MovieDao;
-import com.luxoft.movieLand.dao.jdbc.mapper.CountryRowMapper;
-import com.luxoft.movieLand.dao.jdbc.mapper.GenreRowMapper;
-import com.luxoft.movieLand.dao.jdbc.mapper.MovieRowMapper;
-import com.luxoft.movieLand.dao.jdbc.mapper.ReviewRowMapper;
-import com.luxoft.movieLand.entity.Movie;
+import com.luxoft.movieland.dao.MovieDao;
+import com.luxoft.movieland.dao.jdbc.mapper.CountryRowMapper;
+import com.luxoft.movieland.dao.jdbc.mapper.GenreRowMapper;
+import com.luxoft.movieland.dao.jdbc.mapper.MovieRowMapper;
+import com.luxoft.movieland.dao.jdbc.mapper.ReviewRowMapper;
+import com.luxoft.movieland.entity.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Service;
-import javax.sql.DataSource;
 
 @Service
 public class JdbcMovieDao implements MovieDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
-    @Autowired
-    private NamedParameterJdbcTemplate namedJdbcTemplate;
 
     @Autowired
     private String getMovieByIdSQL;

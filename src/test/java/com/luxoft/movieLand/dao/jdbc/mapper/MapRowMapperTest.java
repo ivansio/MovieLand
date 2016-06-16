@@ -1,9 +1,7 @@
-package com.luxoft.movieLand.dao.jdbc.mapper;
+package com.luxoft.movieland.dao.jdbc.mapper;
 
-import com.luxoft.movieLand.entity.Review;
+import com.luxoft.movieland.entity.Review;
 import org.junit.Test;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +10,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class testMapRowWithProperReview {
+public class MapRowMapperTest {
     @Test
     public void testMapRowWithProperReview() throws SQLException {
         ResultSet resultSet = mock(ResultSet.class);
