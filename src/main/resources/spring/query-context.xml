@@ -8,6 +8,10 @@
         <constructor-arg value="select m.name,m.english_name,m.year,m.description,m.rating,m.id from  movie m where m.id=?;"/>
     </bean>
 
+    <bean id="getMoviesByIdSQL" class="java.lang.String">
+        <constructor-arg value="select m.name,m.english_name,m.year,m.description,m.rating,m.id from  movie m;"/>
+    </bean>
+
     <bean id="getRefMovieCountrySQL" class="java.lang.String">
         <constructor-arg value="select c.name from country c,ref_movie_country rmc where c.id=rmc.id_country and rmc.id_movie=?;"/>
     </bean>
@@ -17,6 +21,13 @@
     </bean>
 
     <bean id="getReviewByIdSQL" class="java.lang.String">
-        <constructor-arg value="SELECT description FROM (select r.description from review r where r.id_movie=?) T LIMIT 2;"/>
+        <constructor-arg value="select description from (select r.description from review r where r.id_movie=?) t limit 2;"/>
+    </bean>
+
+    <bean id="getMovies" class="java.lang.String">
+        <constructor-arg value="select count(*) from movie;"/>
+    </bean>
+    <bean id="addMovieSQL" class="java.lang.String">
+        <constructor-arg value="insert into movie (id,name,english_name,year,description,rating,price ) VALUES (:id,:name,:english_name,:year,:description,:rating,:price );"/>
     </bean>
 </beans>
