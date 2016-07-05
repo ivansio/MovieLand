@@ -1,5 +1,7 @@
 package com.luxoft.movieland.entity;
 
+import com.luxoft.movieland.util.TransformerConverter;
+
 import java.util.List;
 
 public class Movie {
@@ -13,7 +15,6 @@ public class Movie {
     private double rating;
     private double price;
     private List<Review> reviewList;
-    private static final String COMMA_SEPARATOR = ", ";
 
     public List<Review> getReviewList() {
         return reviewList;
@@ -95,33 +96,20 @@ public class Movie {
         this.price = price;
     }
 
-    public String getGenres(){
-        StringBuilder result = new StringBuilder("");
-        int i=1;
-        for (Genre genre : genreList ) {
-            result.append(genre);
-            if(i++!=genreList.size()){result.append(COMMA_SEPARATOR);}
-        }
-        return result.toString();
-    }
 
-    public String getCounties(){
-        StringBuilder result = new StringBuilder("");
-        int i=1;
-        for (Country country : countryList ) {
-            result.append(country);
-            if(i++!=countryList.size()){result.append(COMMA_SEPARATOR);}
-        }
-        return result.toString();
-    }
-
-    public String getReview(){
-        StringBuilder result = new StringBuilder("");
-        int i=1;
-        for (Review review : reviewList ) {
-            result.append(review);
-            if(i++!=reviewList.size()){result.append("    ");}
-        }
-        return result.toString();
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", englishName='" + englishName + '\'' +
+                ", year=" + year +
+                ", countryList=" + countryList +
+                ", genreList=" + genreList +
+                ", description='" + description + '\'' +
+                ", rating=" + rating +
+                ", price=" + price +
+                ", reviewList=" + reviewList +
+                '}';
     }
 }

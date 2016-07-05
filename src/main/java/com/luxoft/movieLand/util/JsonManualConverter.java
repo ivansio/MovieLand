@@ -10,7 +10,6 @@ import java.util.List;
 
 @Service
 public class JsonManualConverter {
-    //private final Logger log = LoggerFactory.getLogger(getClass());
     private static final String COMMA_SEPARATOR = ",";
     private static final String COLON_SEPARATOR = ":";
 

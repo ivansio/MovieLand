@@ -1,6 +1,7 @@
 package com.luxoft.movieland.service;
 
 import com.luxoft.movieland.dao.MovieDao;
+import com.luxoft.movieland.dto.MovieAllDto;
 import com.luxoft.movieland.entity.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,10 +20,5 @@ public class MovieServiceImpl implements MovieService{
     }
 
     @Override
-    public List<Movie> getAll(){return movieDao.getAll();};
-
-    /*@Override
-    public void add(Movie movie) {
-        movieDao.add(movie);
-    }*/
+    public List<MovieAllDto> getAll(){return movieDao.getAll();};
 }
