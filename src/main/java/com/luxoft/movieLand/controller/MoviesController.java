@@ -8,13 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Controller
 @RequestMapping("/v1/movies")
 public class MoviesController {
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(MoviesController.class);
 
     @Autowired
     private MovieService movieService;
@@ -25,11 +24,12 @@ public class MoviesController {
     @RequestMapping(produces = {"application/json; charset=UTF-8"})
     @ResponseBody
     public String getAllMovie(){
-        log.info("Getting all movies");
+        LOGGER.info("Getting all movies");
         long startTime = System.currentTimeMillis();
         List<MovieAllDto> movies =(List<MovieAllDto>) movieService.getAll();
-        log.info("Movies {} received. {} ms elapsed.", movies, System.currentTimeMillis() - startTime);
+        LOGGER.info("Movies {} received. {} ms elapsed.", movies, System.currentTimeMillis() - startTime);
         String moviesJsonArray = jsonJacksonConverter.listMovieToJson(movies);
+        LOGGER.debug("Response body: {}",moviesJsonArray);
         return moviesJsonArray;
     }
 }

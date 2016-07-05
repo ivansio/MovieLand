@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MovieAllRowMapper implements RowMapper<MovieAllDto> {
+public class MovieDtoRowMapper implements RowMapper<MovieAllDto> {
     @Override
     public MovieAllDto mapRow(ResultSet resultSet, int i) throws SQLException {
         MovieAllDto movie = new MovieAllDto();
