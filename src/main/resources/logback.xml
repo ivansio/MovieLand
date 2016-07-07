@@ -1,33 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-
-    <appender name="FILE-AUDIT"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>C:/logs/debug.log</file>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern>
-                %d{yyyy-MM-dd HH:mm:ss} - %msg%n
-            </Pattern>
-        </encoder>
-
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- rollover daily -->
-            <fileNamePattern>C:/logs/archived/debug.%d{yyyy-MM-dd}.%i.log
-            </fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy
-                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>5MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>C:/Users/Red5.PTC/IdeaProjects/MovieLand/MovieLand/logs/movieland.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>C:/Users/Red5.PTC/IdeaProjects/MovieLand/MovieLand/logs/movieland-%d{yyyy-MM-dd}.log.%i</fileNamePattern>
+            <maxFileSize>5MB</maxFileSize>
         </rollingPolicy>
-
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %X{requestId} %X{user} %-5level %logger{5} - %msg%n</pattern>
+        </encoder>
     </appender>
 
-    <logger level="debug">
-        <appender-ref ref="FILE-AUDIT" />
-    </logger>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %X{requestId} %X{user} %-5level %logger{5} - %msg%n</pattern>
+        </encoder>
+    </appender>
 
-    <root level="error">
-        <appender-ref ref="FILE-AUDIT"/>
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
     </root>
-
 </configuration>
