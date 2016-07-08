@@ -8,4 +8,5 @@ import java.util.List;
 public interface MovieService {
     Movie getById(int id);
     List<MovieAllDto> getAll();
+    List<MovieAllDto> getAllSort(String ratingSort, String priceSort);
 }

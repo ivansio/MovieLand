@@ -3,7 +3,9 @@ package com.luxoft.movieland.dao.jdbc;
 import com.luxoft.movieland.dao.MovieDao;
 import com.luxoft.movieland.dao.jdbc.mapper.*;
 import com.luxoft.movieland.dto.MovieAllDto;
+import com.luxoft.movieland.dto.MovieRequest;
 import com.luxoft.movieland.entity.Movie;
+import com.luxoft.movieland.util.QueryGenerator;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -32,6 +34,11 @@ public class JdbcMovieDao implements MovieDao {
     @Autowired
     private String getMoviesByIdSQL;
 
+    @Autowired
+    private QueryGenerator getGeneratedQuery;
+
+    private MovieRowMapper movieRowMapper = new MovieRowMapper();
+
     @Override
     public Movie getById(int id) {
         LOGGER.debug("Start getting movie_id ={}  from DB",id);
@@ -55,5 +62,18 @@ public class JdbcMovieDao implements MovieDao {
         }
         LOGGER.debug("Finish getting all movies from DB");
         return movies;
+    }
+
+    @Override
+    public List<MovieAllDto> getAllSort(String ratingSort, String priceSort){
+        LOGGER.debug("Start getting all movies from DB");
+        long startTime = System.currentTimeMillis();
+        List<MovieAllDto> movies = jdbcTemplate.query(getGeneratedQuery.getGeneratedQueryAllMovies(ratingSort,priceSort),new MovieDtoRowMapper());
+        LOGGER.info("Finish query getting all movies from DB. It took {} ms", System.currentTimeMillis() - startTime);
+        for(MovieAllDto movie : movies){
+            movie.setGenreList(jdbcTemplate.query(getRefMovieGenreSQL, new Object[]{movie.getId()},new GenreRowMapper()));
+        }
+        LOGGER.debug("Finish getting all movies from DB");
+        return null;
     }
 }

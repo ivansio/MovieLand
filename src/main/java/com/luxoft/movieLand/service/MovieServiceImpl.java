@@ -21,4 +21,6 @@ public class MovieServiceImpl implements MovieService{
 
     @Override
     public List<MovieAllDto> getAll(){return movieDao.getAll();};
+    @Override
+    public List<MovieAllDto> getAllSort(String ratingSort, String priceSort){return movieDao.getAll();}
 }
